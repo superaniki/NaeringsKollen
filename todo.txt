@@ -1,0 +1,13 @@
+
+Nutrikollen...
+
+
+
+* installera nodejs
+* välj en databas
+
+
+* ladda hem näringsdatabasen från livsmedelsverket. vilekt format?
+konvertera?
+ladda hem andra databaser
+* lista databasen genom node! priiiiiint.
