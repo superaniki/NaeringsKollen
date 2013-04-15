@@ -1,13 +1,113 @@
 
-Nutrikollen...
+////////////////////////////////////////////////////////////////
+/////  Näringskollen   ////  av Rickard Sandgren   /////////////
+////////////////////////////////////////////////////////////////
 
 
 
-* installera nodejs
-* välj en databas
+
+--- Koncept o Ideer -----------------------------------------------
 
 
-* ladda hem näringsdatabasen från livsmedelsverket. vilekt format?
-konvertera?
-ladda hem andra databaser
-* lista databasen genom node! priiiiiint.
+
+* Enkel Sökning:
+
+Mata in en ingrediens, sök
+Mata in en annan ingrediens, jämför
+
+-> 2 tabeller/pajformar/grafiska-någotannat visas jämte varandra.
+-> animerat/interaktivt/rent.
+( kanske utgå ifrån "referensmaterial / enkel-jämförelse.jpg" )
+
+Vilken mat har mest mineraleer och vitaminer?
+
+Räkna ut diagram med hjälp av näringsrekommendationer ifrån livsmedelsverket
+samt andra databaser ifrån andra länder/pålästa. 
+Möjlighet att välja en annan rekommendationstabell.
+
+
+
+
+* näringstoppen
+
+en lista med alla näringsvärden
+trycka på ett näringsvärde, och man får se mat som har högsta värdena.
+
+
+
+
+--- Todooz -----------------------------------------------------
+
+
+
+X installera nodejs
+X välj en databas
+X ladda hem näringsdatabasen från livsmedelsverket. vilekt format?
+X ladda in i mongodb
+X simpel lista i webläsaren
+
+
+* enkel sökning
+	Sträng och submit: Varan visas.
+	. POST sträng
+    . söker och listar varor som innehåller namnet
+    . returnerar en jquery med relevanta varor
+    . tar emot på clienten. listar enkelt. parsa lite kanske.
+
+
+* sortera upp databasen i
+	spannmål
+	grönsaker
+	rotfrukter?
+	frukt
+	animaliskt
+	produkter
+  skapa fler databaser som länkar ihop? skapa nya kolumner i nuvarande?
+
+
+* ladda hem andra databaser
+
+
+
+--- Referensmaterial ------------------------------------
+
+Exempel på andra sökmotorer:
+
+
+http://www.twofoods.com/
+: supersimpel sökmotor. 2 objekt åt gången max jämförs
++ enkel ren sida, simpel sökning, inget onödigt fluff. 
+- tråkiga diagram med fokus på kalorier....
+
+
+http://nutritiondata.self.com/facts/beverages/7674/2
+: sökmotor med mycket beräkningar och data
++ Bra grafiska diagram. pajformen fast interaktiv, större och snyggare!
+( referensmaterial / selfnutritiondata.png )
+- stökig. massa onödiga skittabeller. fullness factor??? =P
+
+
+http://www.healthaliciousness.com/nutritionfacts/nutrition-facts-compare.php
+: rena tabeller, ser ut som innehållsförteckningar. max 3 åt gången.
++ möjlighet att ändra portionsstorlek, anpassat till objektet, tex antal, klyftor, soppslevar osv
+
+
+
+--- Ladda in databasen i mongoDB -------------------------
+
+Skapa databas i mongodb prompten
+> use nk // byter till och skapar en databas
+
+sen..
+
+Hämta databas ifrån livsmedelsverket.
+
+Konvertera följande:
+; -> |
+, -> .
+; -> ,
+
+Ta bort första raden.
+
+> mongoimport --db databasnamnet --collection livsmedel --type csv 
+--file LivsmedelsDatabasen.csv --headerline --ignoreBlanks

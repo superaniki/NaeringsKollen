@@ -1,9 +1,13 @@
 {
-  "name": "NutriKollen",
-  "description": "Undersök näringsvärde i mat",
+  "name": "application-name",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
-    "express": "3.x"
+    "express": "3.1.1",
+    "jade": "*",
+    "stylus": "*"
   }
 }
